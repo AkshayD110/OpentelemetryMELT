@@ -8,6 +8,14 @@ public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
+        String serviceName = System.getenv("OTEL_SERVICE_NAME");
+        String exporterEndpoint = System.getenv("OTEL_EXPORTER_OTLP_ENDPOINT");
+        String exporterHeaders = System.getenv("OTEL_EXPORTER_OTLP_HEADERS");
+
+        logger.info("Service Name: {}", serviceName);
+        logger.info("Exporter Endpoint: {}", exporterEndpoint);
+        logger.info("Exporter Headers: {}", exporterHeaders);
+
         RemoveDuplicate removeDuplicate = new RemoveDuplicate();
 
         logger.info(new ObjectMessage("starting in main"));
